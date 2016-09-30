@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Modal demo</title>
+<link rel="stylesheet" type="text/css" href="css/jquery.modal.css">
+<style type="text/css">
+	*{ margin: 0; padding: 0; }
+	dl{ font:12px normal 'Microsoft YaHei'; width: 900px; height: 100%; overflow: hidden; margin: 20px auto;  border:1px solid #eee; background: #f8f8f8; padding: 20px; }
+	dl dt{ width: 100%; height: 30px; line-height: 30px; font-size: 14px; font-weight: bold; }
+	dl dd{ padding: 10px; }
+	pre{ color:#fff; height: 100%; overflow: hidden; background: #66BE8C; margin: 10px 0; word-break: normal; word-wrap:break-word;}
+	code{ word-break: normal;}
+	ul,li{ list-style: none; }
+</style>
+</head>
+<body>
+<dl class="item">
+	<dt>Modal demo</dt>
+	<dd>
+		<input type="button" id="btn-simple" value="click me" />
+		<pre>
+			<code>
+				$('#btn-simple').click(function(){
+					var modal = new $.Modal({
+						width: null, //弹出层宽度
+			 			height: null,  //弹出层高度
+			 			autoSize: true,  //是否自适应尺寸,默认自适应
+			 			autoHide: false,  //是否自自动消失，配合time参数共用
+			 			time: 3000,  //自动消失时间，单位毫秒
+			 			zIndex: 99999,  //弹出层定位层级
+			 			hasMask: false,  //是否显示遮罩层
+			 			hasClose: false,  //是否显示关闭按钮
+			 			effect: '', //动画效果：fade(默认),newspaper,fall,scaled,flip-horizontal,flip-vertical,sign,
+			 			type: 'normal', //对话框类型：normal(普通对话框),correct(正确/操作成功对话框),error(错误/警告对话框)
+			 			title: '',  //标题内容，如果不设置，则连同关闭按钮（不论设置显示与否）都不显示标题
+			 			content: ''  //正文内容，可以为纯字符串，html标签字符串，以及URL地址，当content为URL地址时，将内嵌目标页面的iframe。
+					});
+					modal.show();
+					// modal.hide();
+				});
+			</code>
+		</pre>
+	</dd>
+</dl>
+
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/jquery.modal.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	$('#btn-simple').click(function(){
+		var modal = new $.Modal({
+			width: 500,
+			height: 300,
+			// title: 'title text',
+			// time: 3000,
+			// autoHide: true,
+			hasMask: true,
+			hasClose: true,
+			type: 'normal',
+			effect: 'fade',
+			content: '正文内容，可以为纯字符串，html标签字符串，以及URL地址，当content为URL地址时，将内嵌目标页面的iframe。'
+		});
+		modal.show();
+		// modal.hide();
+	});
+
+})
+</script>
+</body>
+</html>
