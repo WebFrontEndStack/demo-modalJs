@@ -27,7 +27,6 @@ $(function(){
  			var that = this;
  			that.render();
  			that.setStyle();
- 			that.show();
  			that.trigger();
  		},
 
